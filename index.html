@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Forex Fusion Hub</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  
+  <style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: #f4f6f8;
+  color: #333;
+}
+
+header {
+  background: #1e2a38;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 1.8rem;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  background: #dbeafe;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+.content {
+  padding: 1rem;
+  font-size: 1rem;
+}
+</style>
+
+  
+  
+  <header>
+    <h1>Forex Fusion Hub</h1>
+    <p>Your Ultimate Forex Companion</p>
+  </header>
+
+  <main class="features">
+    <div class="card" onclick="openFeature('forexflow')">📈 ForexFlow News</div>
+    <div class="card" onclick="openFeature('smartfx')">🤖 SmartFX Chatbot</div>
+    <div class="card" onclick="openFeature('quotes')">💬 Motivational Quotes</div>
+    <div class="card" onclick="openFeature('riskcalc')">📊 AutoRisk FX</div>
+    <div class="card" onclick="openFeature('learn')">📚 Learning Hub</div>
+    <div class="card" onclick="openFeature('offline')">📥 Trading bot</div>
+  </main>
+
+  <footer>
+    <p>© 2025 Forex Fusion Hub</p>
+  </footer>
+
+
+<script>
+function openFeature(feature) {
+  const pages = {
+    forexflow: 'forexflow.html',
+    smartfx: 'smartfx.html',
+    quotes: 'quotes.html',
+    riskcalc: 'riskcalc.html',
+    learn: 'learn.html',
+    offline: 'offline.html',
+  };
+
+  if (pages[feature]) {
+    window.location.href = pages[feature];
+  } else {
+    alert("Feature not available yet.");
+  }
+}
+</script>
+
+</body>
+</html>
+

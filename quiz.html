@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz - Forex Fusion Hub</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>📝 Forex Quiz</h1>
+    <p>Test your trading knowledge</p>
+    <button onclick="goHome()">← Back</button>
+  </header>
+
+  <main class="content">
+    <div class="quiz-box">
+      <div id="questionBox">
+        <p id="question">Loading question...</p>
+        <div id="options"></div>
+        <button id="nextBtn" onclick="nextQuestion()">Next</button>
+      </div>
+      <div id="scoreBox" style="display:none;"></div>
+    </div>
+  </main>
+  
+  <style>
+  header {
+  background: #1e2a38;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 1.8rem;
+}
+  
+.quiz-box {
+  background: white;
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 500px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.option-btn {
+  display: block;
+  width: 100%;
+  padding: 0.8rem;
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  background: #f9fafb;
+  transition: background 0.2s;
+}
+
+.option-btn:hover {
+  background: #dbeafe;
+}
+
+.option-btn.correct {
+  background: #d1fae5;
+  border-color: green;
+}
+
+.option-btn.wrong {
+  background: #fee2e2;
+  border-color: red;
+}
+
+#nextBtn {
+  margin-top: 1rem;
+  width: 100%;
+  padding: 0.8rem;
+  background: #1e2a38;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+#nextBtn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.lesson-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+  </style>
+
+
+  <script>
+    const quiz = [
+      {
+        question: "What does 'Pip' stand for in Forex?",
+        options: ["Point in Percentage", "Price in Pairs", "Profit in Pip", "Percentage Interest Point"],
+        answer: "Point in Percentage"
+      },
+      {
+        question: "What is a common lot size in forex trading?",
+        options: ["100", "1,000", "10,000", "100,000"],
+        answer: "100,000"
+      },
+      {
+        question: "Which type of analysis uses charts and indicators?",
+        options: ["Technical", "Fundamental", "Political", "Social"],
+        answer: "Technical"
+      }
+    ];
+
+    let current = 0;
+    let score = 0;
+
+    function loadQuestion() {
+      const q = quiz[current];
+      document.getElementById("question").textContent = q.question;
+      const optionsDiv = document.getElementById("options");
+      optionsDiv.innerHTML = "";
+
+      q.options.forEach(option => {
+        const btn = document.createElement("button");
+        btn.textContent = option;
+        btn.className = "option-btn";
+        btn.onclick = () => checkAnswer(option, btn);
+        optionsDiv.appendChild(btn);
+      });
+
+      document.getElementById("nextBtn").disabled = true;
+    }
+
+    function checkAnswer(selected, btn) {
+      const correct = quiz[current].answer;
+      const optionButtons = document.querySelectorAll(".option-btn");
+      optionButtons.forEach(b => b.disabled = true);
+
+      if (selected === correct) {
+        btn.classList.add("correct");
+        score++;
+      } else {
+        btn.classList.add("wrong");
+        optionButtons.forEach(b => {
+          if (b.textContent === correct) b.classList.add("correct");
+        });
+      }
+
+      document.getElementById("nextBtn").disabled = false;
+    }
+
+    function nextQuestion() {
+      current++;
+      if (current < quiz.length) {
+        loadQuestion();
+      } else {
+        document.getElementById("questionBox").style.display = "none";
+        document.getElementById("scoreBox").style.display = "block";
+        document.getElementById("scoreBox").innerHTML = 
+          <h2>🎉 Quiz Complete</h2>
+          <p>You scored <strong>${score}</strong> out of <strong>${quiz.length}</strong>.</p>
+          <button onclick="goHome()">Go Home</button>
+        ;
+      }
+    }
+
+    function goHome() {
+      window.location.href = "learn.html";
+    }
+
+    window.onload = loadQuestion;
+  </script>
+</body>
+</html>
+
+  

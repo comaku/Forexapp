@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Learning Hub - Forex Fusion Hub</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>📚 Learning Hub</h1>
+    <p>Master Forex with simple lessons and quizzes</p>
+    <button onclick="goHome()">← Back</button>
+  </header>
+
+  <main class="content">
+    <section class="lesson-grid">
+  <a class="lesson-card" href="https://www.youtube.com/watch?v=QRS8MkLhQmM" target="_blank">📘 What is Forex?</a>
+  <a class="lesson-card" href="https://www.youtube.com/watch?v=rsxWfD8B298" target="_blank">📈 Candlestick Basics</a>
+  <a class="lesson-card" href="https://www.youtube.com/watch?v=_GzHLeM69os" target="_blank">💡 Risk Management</a>
+  <a class="lesson-card" href="https://www.youtube.com/watch?v=lzSKP7iCFeM" target="_blank">🧠 Trading Psychology</a>
+  <a class="lesson-card" href="https://www.youtube.com/watch?v=9I3-dPBAU4E" target="_blank">⚙️ Technical vs Fundamental</a>
+</section>
+
+    <h3>📝 Practice Quizzes</h3>
+    <button onclick="openQuiz()">Start a Quiz</button>
+  </main>
+  
+  <style>
+  header {
+  background: #1e2a38;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 1.8rem;
+}
+  
+.lesson-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+  
+  section a{
+    text-decoration: none;
+    color: black;
+  }
+
+.lesson-card {
+  background: #ffffff;
+  padding: 1.2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.3s;
+  font-size: 1rem;
+}
+
+.lesson-card:hover {
+  transform: translateY(-5px);
+  background: #e0f2fe;
+}
+
+.content h3 {
+  margin-top: 2rem;
+  font-size: 1.2rem;
+}
+
+.content button {
+  background: #1e2a38;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+.content button:hover {
+  background: #344659;
+}
+</style>
+
+  <script>
+    function goHome() {
+      window.location.href = "index.html";
+    }
+
+    function openLesson(lessonId) {
+      alert("Open content for " + lessonId); // Replace with dynamic content/page later
+    }
+
+    function openQuiz() {
+      window.location.href = "quiz.html";
+    }
+  </script>
+</body>
+</html>
+

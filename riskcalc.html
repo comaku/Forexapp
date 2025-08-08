@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AutoRisk FX - Position Size Calculator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  
+  <style>
+  
+  header {
+  background: #1e2a38;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 1.8rem;
+}
+  
+.calc-box {
+  background: white;
+  padding: 2rem;
+  margin-top: 2rem;
+  max-width: 500px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.calc-box label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+.calc-box input, .calc-box select {
+  width: 100%;
+  padding: 0.6rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-top: 0.3rem;
+}
+
+.calc-box button {
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 0.8rem;
+  font-size: 1rem;
+  background: #1e2a38;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.result-box {
+  margin-top: 2rem;
+  background: #f9f9f9;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+
+
+  </style>
+  
+  
+  <header>
+    <h1>📐 AutoRisk FX</h1>
+    <p>Calculate the optimal lot size based on risk, pair & leverage</p>
+    <button onclick="goHome()">← Back</button>
+  </header>
+
+  <main class="content">
+    <div class="calc-box">
+      <label>Account Balance ($)</label>
+      <input type="number" id="balance" placeholder="e.g. 1000" />
+
+      <label>Risk per Trade (%)</label>
+      <input type="number" id="risk" placeholder="e.g. 2" />
+
+      <label>Stop Loss (in Pips)</label>
+      <input type="number" id="stopLoss" placeholder="e.g. 30" />
+
+      <label>Leverage (e.g. 100 for 1:100)</label>
+      <input type="number" id="leverage" placeholder="e.g. 100" />
+
+      <label>Currency Pair</label>
+      <select id="pair">
+        <option value="EURUSD">EUR/USD</option>
+        <option value="GBPUSD">GBP/USD</option>
+        <option value="USDJPY">USD/JPY</option>
+        <option value="XAUUSD">XAU/USD (Gold)</option>
+        <option value="USDCAD">USD/CAD</option>
+        <option value="AUDUSD">AUD/USD</option>
+      </select>
+
+      <button onclick="calculate()">Calculate</button>
+
+      <div id="result" class="result-box"></div>
+    </div>
+  </main>
+
+  <script>
+    const pipValues = {
+      EURUSD: 10,
+      GBPUSD: 10,
+      USDJPY: 9.13,
+      XAUUSD: 1.00,
+      USDCAD: 10,
+      AUDUSD: 10
+    };
+
+    function calculate() {
+      const balance = parseFloat(document.getElementById("balance").value);
+      const riskPercent = parseFloat(document.getElementById("risk").value);
+      const stopLoss = parseFloat(document.getElementById("stopLoss").value);
+      const leverage = parseFloat(document.getElementById("leverage").value);
+      const pair = document.getElementById("pair").value;
+      const pipValue = pipValues[pair] || 10;
+
+      if (isNaN(balance) || isNaN(riskPercent) || isNaN(stopLoss) || isNaN(leverage)) {
+        return alert("Please fill all fields correctly.");
+      }
+
+      const riskAmount = (riskPercent / 100) * balance;
+      const lots = riskAmount / (stopLoss * pipValue);
+      const marginRequired = (100000 * lots) / leverage;
+
+      document.getElementById("result").innerHTML = `
+        <h3>📊 Result</h3>
+        <p><strong>Risking:</strong> $${riskAmount.toFixed(2)}</p>
+        <p><strong>Recommended Lot Size:</strong> ${lots.toFixed(2)}</p>
+        <p><strong>Approx Margin Required:</strong> $${marginRequired.toFixed(2)}</p>
+        <p><strong>Pair:</strong> ${pair}, Leverage: 1:${leverage}</p>
+      `;
+    }
+
+    function goHome() {
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>
+
+
+
