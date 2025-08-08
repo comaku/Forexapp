@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Motivational Quotes - Forex Fusion Hub</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>💬 Motivational Quotes</h1>
+    <p>Fuel your trading mindset</p>
+    <button onclick="goHome()">← Back</button>
+  </header>
+
+  <main class="content">
+    <div class="quote-box">
+      <p id="quote">Click the button to get inspired!</p>
+      <button onclick="generateQuote()">✨ New Quote</button>
+    </div>
+  </main>
+  <style>
+  header {
+  background: #1e2a38;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 1.8rem;
+}
+  quote-box {
+  background: white;
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 500px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.quote-box p {
+  font-size: 1.2rem;
+  font-style: italic;
+  margin-bottom: 1.5rem;
+}
+
+.quote-box button {
+  padding: 0.7rem 1.2rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background: #1e2a38;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.quote-box button:hover {
+  background: #3b4b5d;
+}
+
+  </style>
+
+  <script>
+    const quotes = [
+      "Discipline is the bridge between goals and accomplishment.",
+      "Your risk is not just in the trade, it’s in your mindset.",
+      "A trader who masters patience masters trading.",
+      "Plan the trade and trade the plan.",
+      "Every loss is a lesson, not a failure.",
+      "Stay calm. Stay focused. Stay consistent.",
+      "Success in trading is 80% psychology and 20% strategy.",
+      "You don’t need to trade every day. You need to trade smart.",
+      "Fear and greed are your real opponents.",
+      "Your edge is nothing without execution."
+    ];
+
+    function generateQuote() {
+      const quoteText = quotes[Math.floor(Math.random() * quotes.length)];
+      document.getElementById("quote").textContent = quoteText;
+    }
+
+    function goHome() {
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>
+
+.
