@@ -4,74 +4,107 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Update Fusion Hub</title>
-  <link rel="stylesheet" href="style.css"/>
-</head>
-<body>
-  
+
   <style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', sans-serif;
-}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+    }
 
-body {
-  background: #f4f6f8;
-  color: #333;
-}
+    body {
+      background: #f4f6f8;
+      color: #333;
+    }
 
-header {
-  background: #1e2a38;
-  color: white;
-  padding: 1rem;
-  text-align: center;
-}
+    /* ================= PRELOADER ================= */
+    #preloader {
+      position: fixed;
+      inset: 0;
+      background: #1e2a38;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
 
-header h1 {
-  font-size: 1.8rem;
-}
+    #typing-text {
+      color: #ffffff;
+      font-size: 2rem;
+      font-weight: bold;
+      letter-spacing: 4px;
+      border-right: 3px solid #ffffff;
+      padding-right: 6px;
+      animation: blink 0.7s infinite;
+    }
 
-.features {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1rem;
-  padding: 1rem;
-}
+    @keyframes blink {
+      0% { border-color: transparent; }
+      50% { border-color: white; }
+      100% { border-color: transparent; }
+    }
 
-.card {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: transform 0.2s, background 0.3s;
-}
+    /* ================= MAIN APP ================= */
+    header {
+      background: #1e2a38;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
 
-.card:hover {
-  transform: translateY(-5px);
-  background: #dbeafe;
-}
+    header h1 {
+      font-size: 1.8rem;
+    }
 
-footer {
-  text-align: center;
-  padding: 1rem;
-  font-size: 0.9rem;
-  color: #555;
-}
-.content {
-  padding: 1rem;
-  font-size: 1rem;
-}
-</style>
+    header p {
+      opacity: 0.9;
+      margin-top: 0.3rem;
+    }
 
-  
-  
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      padding: 1rem;
+    }
+
+    .card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform 0.2s, background 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      background: #dbeafe;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #555;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- PRELOADER -->
+  <div id="preloader">
+    <span id="typing-text"></span>
+  </div>
+
+  <!-- APP CONTENT -->
   <header>
-    <h1>Forex Fusion Hub</h1>
-    <p>Your Ultimate Forex Companion</p>
+    <h1>Update Fusion Hub</h1>
+    <p>Your Smart Wealth & Trading Companion</p>
   </header>
 
   <main class="features">
@@ -80,33 +113,57 @@ footer {
     <div class="card" onclick="openFeature('quotes')">💬 Motivational Quotes</div>
     <div class="card" onclick="openFeature('riskcalc')">📊 AutoRisk FX</div>
     <div class="card" onclick="openFeature('learn')">📚 Learning Hub</div>
-    <div class="card" onclick="openFeature('ben')">🎯 Ben Code</div>
+    <div class="card" onclick="openFeature('ben')">🎯 Sporty Hub</div>
   </main>
 
   <footer>
-    <p>© 2025 Forex Fusion Hub</p>
+    <p>© 2025 UpdateFusion Wealth Hub</p>
   </footer>
 
+  <!-- SCRIPTS -->
+  <script>
+    /* ===== PRELOADER TYPE EFFECT ===== */
+    const text = "SMART WEALTH";
+    let index = 0;
+    const speed = 150;
 
-<script>
-function openFeature(feature) {
-  const pages = {
-    forex: 'forex.html',
-    smartfx: 'smartfx.html',
-    quotes: 'quotes.html',
-    riskcalc: 'riskcalc.html',
-    learn: 'learn.html',
-    ben: 'ben.html',
-  };
+    function typeEffect() {
+      if (index < text.length) {
+        document.getElementById("typing-text").textContent += text.charAt(index);
+        index++;
+        setTimeout(typeEffect, speed);
+      } else {
+        setTimeout(() => {
+          const loader = document.getElementById("preloader");
+          loader.style.opacity = "0";
+          loader.style.transition = "opacity 0.6s ease";
+          setTimeout(() => {
+            loader.style.display = "none";
+          }, 600);
+        }, 800);
+      }
+    }
 
-  if (pages[feature]) {
-    window.location.href = pages[feature];
-  } else {
-    alert("Feature not available yet.");
-  }
-}
-</script>
+    window.onload = typeEffect;
+
+    /* ===== NAVIGATION ===== */
+    function openFeature(feature) {
+      const pages = {
+        forex: 'forex.html',
+        smartfx: 'smartfx.html',
+        quotes: 'quotes.html',
+        riskcalc: 'riskcalc.html',
+        learn: 'learn.html',
+        ben: 'ben.html'
+      };
+
+      if (pages[feature]) {
+        window.location.href = pages[feature];
+      } else {
+        alert("Feature not available yet.");
+      }
+    }
+  </script>
 
 </body>
 </html>
-
