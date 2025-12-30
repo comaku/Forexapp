@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Forex Fusion Hub</title>
+  <title>Update Fusion Hub</title>
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
@@ -75,12 +75,12 @@ footer {
   </header>
 
   <main class="features">
-    <div class="card" onclick="openFeature('forexflow')">📈 ForexFlow News</div>
+    <div class="card" onclick="openFeature('forex')">📈 Forex Signals</div>
     <div class="card" onclick="openFeature('smartfx')">🤖 SmartFX Chatbot</div>
     <div class="card" onclick="openFeature('quotes')">💬 Motivational Quotes</div>
     <div class="card" onclick="openFeature('riskcalc')">📊 AutoRisk FX</div>
     <div class="card" onclick="openFeature('learn')">📚 Learning Hub</div>
-    <div class="card" onclick="openFeature('offline')">📥 Trading bot</div>
+    <div class="card" onclick="openFeature('ben')">📥 Ben Code</div>
   </main>
 
   <footer>
@@ -91,12 +91,12 @@ footer {
 <script>
 function openFeature(feature) {
   const pages = {
-    forexflow: 'forexflow.html',
+    forex: 'forex.html',
     smartfx: 'smartfx.html',
     quotes: 'quotes.html',
     riskcalc: 'riskcalc.html',
     learn: 'learn.html',
-    offline: 'offline.html',
+    ben: 'ben.html',
   };
 
   if (pages[feature]) {
