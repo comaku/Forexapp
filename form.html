@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ben Code Hub</title>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <h1>🎯 Ben Code Hub</h1>
+    <p>Premium betting codes • Smart analysis • Discipline-first approach</p>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="content">
+
+    <!-- WHAT USERS GET -->
+    <section>
+      <h3>✅ What You Get</h3>
+      <div class="lesson-grid">
+        <div class="lesson-card">📌 Daily Betting Codes</div>
+        <div class="lesson-card">📊 Smart Game Analysis</div>
+        <div class="lesson-card">⏱️ Timely Updates</div>
+        <div class="lesson-card">🔒 Members-Only Access</div>
+        <div class="lesson-card">📩 Codes Sent via Email</div>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section>
+      <h3>💰 Subscription Plans</h3>
+      <div class="lesson-grid">
+        <div class="lesson-card">
+          <strong>Weekly Plan</strong><br><br>
+          ₦2,500 / week
+        </div>
+        <div class="lesson-card">
+          <strong>2 weeks Plan</strong><br><br>
+          ₦5,000 / month
+        </div>
+        <div class="lesson-card">
+          <strong>Monthly Plan</strong><br><br>
+          ₦10,000 / month
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+      <button onclick="subscribe()">Subscribe Now</button>
+    </section>
+
+    <!-- DISCLAIMER -->
+    <section class="disclaimer">
+      <p><strong>⚠️ 18+ Only:</strong> This service is strictly for users aged 18 and above.</p>
+      <p>
+        <strong>Responsible Gambling Notice:</strong> Betting involves risk. 
+        All betting codes are shared for educational and entertainment purposes only. 
+        We do not guarantee wins or profits. Please gamble responsibly.
+      </p>
+    </section>
+
+  </main>
+
+  <!-- STYLES -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f5f5f5;
+    }
+
+    header {
+      background: #1e2a38;
+      color: white;
+      padding: 1.5rem 1rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .content {
+      padding: 1.5rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h3 {
+      margin-top: 2rem;
+      font-size: 1.2rem;
+      color: #1e2a38;
+    }
+
+    .lesson-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .lesson-card {
+      background: #ffffff;
+      padding: 1.2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      text-align: center;
+      transition: transform 0.2s, background 0.3s;
+      font-size: 0.95rem;
+    }
+
+    .lesson-card:hover {
+      transform: translateY(-5px);
+      background: #e0f2fe;
+    }
+
+    .cta {
+      text-align: center;
+      margin: 3rem 0 2rem;
+    }
+
+    .cta button {
+      background: #1e2a38;
+      color: white;
+      padding: 0.9rem 2rem;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .cta button:hover {
+      background: #344659;
+    }
+
+    .disclaimer {
+      background: #fff3cd;
+      border-left: 5px solid #ff9800;
+      padding: 1rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+    }
+  </style>
+
+  <!-- SCRIPT -->
+  <script>
+    function subscribe() {
+      window.location.href = "subscribe.html";
+    }
+  </script>
+
+</body>
+</html>
