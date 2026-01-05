@@ -2,100 +2,124 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>QuizLite – How It Works</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Opportunities Hub</title>
 
   <style>
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
       font-family: 'Segoe UI', sans-serif;
     }
 
     body {
       background: #f4f6f8;
       color: #333;
-      line-height: 1.6;
     }
 
     header {
       background: #1e2a38;
       color: #fff;
-      padding: 1.5rem 1rem;
+      padding: 1.5rem;
       text-align: center;
     }
 
     header h1 {
-      font-size: 1.8rem;
+      font-size: 1.9rem;
     }
 
     header p {
-      margin-top: 0.5rem;
-      font-size: 1rem;
+      margin-top: 0.4rem;
       opacity: 0.9;
     }
 
     .container {
       padding: 1.5rem;
-      max-width: 900px;
+      max-width: 1100px;
       margin: auto;
+    }
+
+    /* SEARCH BAR */
+    .search-box {
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .search-box input {
+      width: 100%;
+      max-width: 400px;
+      padding: 0.8rem 1rem;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    .search-box input:focus {
+      border-color: #1e2a38;
+    }
+
+    .opportunity-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
     }
 
     .card {
       background: #fff;
-      padding: 1.5rem;
       border-radius: 14px;
       box-shadow: 0 6px 15px rgba(0,0,0,0.08);
-      margin-bottom: 1.5rem;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s;
     }
 
-    .card h2 {
-      margin-bottom: 0.8rem;
-      color: #1e2a38;
-      font-size: 1.3rem;
+    .card:hover {
+      transform: translateY(-6px);
     }
 
-    .card ul {
-      margin-left: 1.2rem;
-    }
-
-    .card ul li {
-      margin-bottom: 0.6rem;
-    }
-
-    .highlight {
-      background: #e0f2fe;
-      padding: 1rem;
-      border-radius: 10px;
-      margin-top: 1rem;
-      font-size: 0.95rem;
-    }
-
-    .warning {
-      background: #fff3cd;
-      color: #856404;
-      padding: 1rem;
-      border-radius: 10px;
-      margin-top: 1rem;
-      font-size: 0.95rem;
-    }
-
-    .btn {
-      display: block;
+    .card img {
       width: 100%;
-      text-align: center;
-      background: #1e2a38;
-      color: white;
-      padding: 1rem;
-      border-radius: 12px;
+      height: 170px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 1.2rem;
+      flex-grow: 1;
+    }
+
+    .card-content h3 {
       font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: #1e2a38;
+    }
+
+    .card-content p {
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    .card-footer {
+      padding: 1rem;
+      border-top: 1px solid #eee;
+      text-align: center;
+    }
+
+    .card-footer a {
+      display: inline-block;
+      background: #1e2a38;
+      color: #fff;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      font-size: 0.95rem;
       text-decoration: none;
-      margin-top: 1.5rem;
       transition: background 0.3s;
     }
 
-    .btn:hover {
+    .card-footer a:hover {
       background: #344659;
     }
 
@@ -104,72 +128,108 @@
       padding: 1rem;
       font-size: 0.85rem;
       color: #666;
+      margin-top: 2rem;
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>🧠 QuizLite</h1>
-    <p>Test your knowledge. Learn smart. Grow faster.</p>
+    <h1>🌍 Opportunities Hub</h1>
+    <p>Scholarships • Grants • Jobs • Trainings • Updates</p>
   </header>
 
   <main class="container">
 
-    <div class="card">
-      <h2>📘 What is QuizLite?</h2>
-      <p>
-        QuizLite is a simple educational quiz platform designed to help students
-        and learners test their understanding after studying a topic or book.
-      </p>
+    <!-- SEARCH BAR -->
+    <div class="search-box">
+      <input 
+        type="text" 
+        id="searchInput" 
+        placeholder="🔍 Search opportunities..."
+        onkeyup="searchCards()"
+      />
+    </div>
 
-      <div class="highlight">
-        💡 You only pay with your <strong>mobile data</strong> — no cash required.
+    <div class="opportunity-grid" id="opportunityGrid">
+
+      <!-- CARD 1 -->
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f">
+        <div class="card-content">
+          <h3>Fully Funded International Scholarship</h3>
+          <p>
+            A fully funded scholarship covering tuition, accommodation,
+            and monthly stipend for international students.
+          </p>
+        </div>
+        <div class="card-footer">
+          <a href="#" target="_blank">Apply Now</a>
+        </div>
       </div>
-    </div>
 
-    <div class="card">
-      <h2>🛠️ How to Use QuizLite</h2>
-      <ul>
-        <li>📖 Study the recommended material or topic</li>
-        <li>🧠 Make sure you are ready before starting</li>
-        <li>📝 Click the button below to start the quiz</li>
-        <li>⏱️ Answer all questions carefully</li>
-        <li>✅ Submit once and wait for your result</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h2>⚠️ Important Rules</h2>
-
-      <div class="warning">
-        🚫 Each quiz can be taken <strong>ONLY ONCE</strong><br>
-        🔁 Refreshing or re-opening the quiz may disqualify your attempt<br>
-        📶 Ensure you have stable internet before starting
+      <!-- CARD 2 -->
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7">
+        <div class="card-content">
+          <h3>Free Tech Training Program</h3>
+          <p>
+            Learn web development, data analysis, and digital skills
+            through this free online training.
+          </p>
+        </div>
+        <div class="card-footer">
+          <a href="#" target="_blank">Learn More</a>
+        </div>
       </div>
+
+      <!-- CARD 3 -->
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf">
+        <div class="card-content">
+          <h3>Remote Job Opportunity</h3>
+          <p>
+            Work remotely with flexible hours and competitive pay.
+            Open to applicants across Africa.
+          </p>
+        </div>
+        <div class="card-footer">
+          <a href="#" target="_blank">View Details</a>
+        </div>
+      </div>
+
+      <!-- CARD 4 -->
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1532619187608-e5375cab36f4">
+        <div class="card-content">
+          <h3>Startup Grant for Young Founders</h3>
+          <p>
+            Funding opportunity for startups and young entrepreneurs
+            to grow innovative ideas.
+          </p>
+        </div>
+        <div class="card-footer">
+          <a href="#" target="_blank">Apply</a>
+        </div>
+      </div>
+
     </div>
-
-    <div class="card">
-      <h2>🚀 Ready to Take the Quiz?</h2>
-      <p>
-        Once you click the button below, you will be redirected to Microsoft Forms
-        where you will take the quiz.
-      </p>
-
-      <a 
-        class="btn" 
-        href="YOUR_MICROSOFT_FORM_LINK_HERE" 
-        target="_blank"
-      >
-        ▶️ Start Quiz Now
-      </a>
-    </div>
-
   </main>
 
-  <footer>
-    <p>© 2026 QuizLite • Learn • Test • Grow</p>
-  </footer>
+ 
+
+  <!-- SEARCH SCRIPT -->
+  <script>
+    function searchCards() {
+      const input = document.getElementById("searchInput").value.toLowerCase();
+      const cards = document.querySelectorAll(".card");
+
+      cards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        card.style.display = text.includes(input) ? "flex" : "none";
+      });
+    }
+  </script>
 
 </body>
 </html>
