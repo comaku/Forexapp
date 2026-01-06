@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Skills Learning Hub</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: #f4f6f8;
+      color: #333;
+    }
+
+    header {
+      background: #1e2a38;
+      color: #fff;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 1.9rem;
+    }
+
+    header p {
+      margin-top: 0.4rem;
+      opacity: 0.9;
+    }
+
+    .container {
+      padding: 1.5rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 1.2rem;
+      flex-grow: 1;
+    }
+
+    .card-content h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: #1e2a38;
+    }
+
+    .card-content p {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    .tags {
+      margin-top: 0.7rem;
+      font-size: 0.85rem;
+      color: #2563eb;
+    }
+
+    .card-footer {
+      padding: 1rem;
+      border-top: 1px solid #eee;
+      text-align: center;
+    }
+
+    .card-footer a {
+      display: inline-block;
+      background: #1e2a38;
+      color: #fff;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .card-footer a:hover {
+      background: #344659;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.85rem;
+      color: #666;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🧑‍💻 Skills Learning Hub</h1>
+    <p>Learn Skills • Earn Certificates • Grow Your Career</p>
+  </header>
+
+  <main class="container">
+
+    <div class="skills-grid">
+
+      <!-- GOOGLE DIGITAL GARAGE -->
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c">
+        <div class="card-content">
+          <h3>Google Digital Garage</h3>
+          <p>
+            Free courses by Google covering digital marketing, analytics,
+            career development, productivity, and more.
+          </p>
+          <div class="tags">✅ Free Courses • 🎓 Free Google Certificates</div>
+        </div>
+        <div class="card-footer">
+          <a href="https://grow.google/" target="_blank">Start Learning</a>
+        </div>
+      </div>
+
+      <!-- SAYLOR ACADEMY -->
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085">
+        <div class="card-content">
+          <h3>Saylor Academy</h3>
+          <p>
+            A nonprofit platform offering free courses in business,
+            computer science, economics, and technology.
+          </p>
+          <div class="tags">✅ Free Courses • 📜 Free Shareable Certificates</div>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.saylor.org/" target="_blank">Explore Courses</a>
+        </div>
+      </div>
+
+      <!-- G-DESIGNS ACADEMY -->
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f">
+        <div class="card-content">
+          <h3>G-Designs Academy</h3>
+          <p>
+            Learn practical design and creative skills with hands-on
+            training and industry-focused content.
+          </p>
+          <div class="tags">🎨 Design Skills • 🛠️ Practical Learning</div>
+        </div>
+        <div class="card-footer">
+          <a href="#" target="_blank">Visit Academy</a>
+        </div>
+      </div>
+
+      <!-- BITDEGREE -->
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475">
+        <div class="card-content">
+          <h3>BitDegree</h3>
+          <p>
+            Learn tech, blockchain, and business skills with free
+            courses and blockchain-verified certificates.
+          </p>
+          <div class="tags">🔗 Blockchain • 💻 Tech Skills • 🎓 Free Certificates</div>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.bitdegree.org/" target="_blank">Learn Now</a>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <footer>
+    <p>© 2026 Skills Learning Hub • Learn Today, Earn Tomorrow</p>
+  </footer>
+
+</body>
+</html>
